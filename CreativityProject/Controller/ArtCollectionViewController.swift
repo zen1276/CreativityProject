@@ -35,6 +35,8 @@ public class ArtCollectionViewController: UICollectionViewController
             ]
     }()
     
+    //MARK: - Lifecycle
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
