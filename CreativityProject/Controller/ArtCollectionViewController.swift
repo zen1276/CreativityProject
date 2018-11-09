@@ -30,11 +30,24 @@ public class ArtCollectionViewController: UICollectionViewController
             UIImage(named: "appIconAboutMe"),
             UIImage(named: "appIconAboutMe"),
             UIImage(named: "appIconAboutMe"),
-            UIImage(named: "appIconAboutMe"),
             UIImage(named: "appIconAboutMe")
             ]
     }()
     
+    
+    private let labels : [String] =
+    {
+        return [
+        "catbug",
+        "coding monkey",
+        "generic apple paint powder",
+        "meme about hacking medical devices",
+        "catbug",
+        "catbug",
+        "catbug",
+        "catbug",
+        "catbug"]
+    }()
     //MARK: - Lifecycle
     
     public override func viewDidLoad()
@@ -93,6 +106,27 @@ public class ArtCollectionViewController: UICollectionViewController
 
     // MARK: UICollectionViewDelegate
 
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRowCompact + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRowCompact
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        return sectionInsets
+    }
+    
+    public func collectionView(_ collectionoView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimunLineSpacingForSectionAt section: Int) -> CGFloat
+    {
+        return sectionInsets.left
+    }
+    
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
